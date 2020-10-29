@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class TasksService {
 
-  taskGroups: any[] = [
+  taskGroups: any[] = [ /*Penser à rajouter un type afin de remplacer le "any" mis provisoirement*/
     {
       title: "A faire",
       id: "todo",
@@ -67,12 +67,12 @@ export class TasksService {
     }
   ];
   
-  taskGroupsSubject = new Subject<any[]>();
+  taskGroupsSubject = new Subject<any[]>(); //le subject sert à emettre les donneés
 
   constructor() { }
 
-  emitTaskGroups() {
-    this.taskGroupsSubject.next(this.taskGroups);
+  emitTaskGroups() { //un subject s'accompagne d'une méthode d'emission
+    this.taskGroupsSubject.next(this.taskGroups); //je recupère taskGroupsSubject.next en j'envoi le tableau d'objet qui est dans task service
   }
 
 }
