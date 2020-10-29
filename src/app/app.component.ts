@@ -38,9 +38,9 @@ export class AppComponent implements OnInit, OnDestroy {
     }                 //données du container  //l'index précédent (l'index de l'emplacement de l'élément avec qu'on le déplace)  //le nouvelle index (index courant)
     else{
       transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
+        event.container.data, //donneés du container courant
+        event.previousIndex, //l'emplacement précédent de l'élément
+        event.currentIndex); //index de l'élément courant
       }
     }
   

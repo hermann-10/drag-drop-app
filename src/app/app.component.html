@@ -41,7 +41,7 @@
 
       <div class="bg-light shadow rounded p-3">
         <h2 class="font-weight-normal text-center">{{ taskGroup.title }}</h2>
-        <div class="bg-white shadow my-3 p-4" *ngFor="let task of taskGroup.tasks" cdkDrag>
+        <div class="bg-white shadow my-3 p-4" *ngFor="let task of taskGroup.tasks" cdkDrag> <!-- cdkDrag, permet de créer une poignée, c'est-à-dire qu'il s'agit d'une partie de l'élément dragguable, donc il faudra qu'on clique sur le titre pour déplacer l'élément. Le drag & drop ne fonctionnera pas si on prend l'élément depuis la partie en dessous du titre -->
           <h4 class="font-weight-normal">{{ task.title }}</h4>
           <p class="lead mb-0">{{ task.description }}</p>
         </div>
