@@ -67,7 +67,7 @@ export class TasksService {
     }
   ];
   
-  taskGroupsSubject = new Subject<any[]>(); //le subject sert à emettre les donneés
+  taskGroupsSubject = new Subject<any[]>(); //le subject est un observable qui sert à emettre les donneés
 
   constructor() { }
 
