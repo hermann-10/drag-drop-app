@@ -35,8 +35,10 @@
 </nav>
 
 <div class="container py-5">
-  <div class="row" cdkDropListGroup>
+  <div class="row" cdkDropListGroup> <!-- utilisation de la directive "cdkDropListGroup" sur l'élément parent de notre cdkDropList-->
     <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let taskGroup of taskGroups" cdkDropList [cdkDropListData]="taskGroup.tasks" (cdkDropListDropped)="onTaskDrop($event)"> <!-- Directive cdk, permet de faire la liaison entre les 3 listes -->
+
+    <!-- <div class="col-sm-12 col-md-6 col-lg-4" *ngFor="let taskGroup of taskGroups" [id]="taskGroup.id" cdkDropList [cdkDropListData]="taskGroup.tasks" (cdkDropListDropped)="onTaskDrop($event)">--> <!-- Directive cdk, permet de faire la liaison entre les 3 listes -->
       <!-- cdkDropList permet de créer une zone uniquement pour une liste, afin de restreindre la zone --> <!-- La property binding [cdkDropListData] dans lequel je passe en paramètre taskGroup.tasks, donc ça veut dire que toutes les tâches appartiennent à un groupe de tache, cela permet de récupérer les données lors d'un drop --> <!-- cette directive là "(cdkDropListDropped)" qui est en event binding, lorqu'un évenement est droppé, la méthode onTaskDrop($event) qui prend en paramètre ($event) est déclenchée -->
 
       <div class="bg-light shadow rounded p-3">

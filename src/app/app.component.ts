@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   taskGroups: any[];
   taskGroupsSubscription: Subscription;
 
-  taskGroupsIds: any[];
+  //taskGroupsIds: any[] = [];
 
   constructor(
     private tasksService: TasksService
@@ -21,12 +21,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.taskGroupsSubscription = this.tasksService.taskGroupsSubject.subscribe(
-      (taskGroups: any[]) => {
-        this.taskGroups = taskGroups;
-        taskGroups.forEach(function (child) {
-          this.taskGroupsIds.push(child);
-          console.log(child);
-        });
+      (data) => {
+        this.taskGroups = data;
+
+        /*data.forEach((child) => {
+          this.taskGroupsIds.push(child.id); //push de l'id d'une liste de tâche
+          console.log(child.id);
+        });*/
       }
     );
     this.tasksService.emitTaskGroups();
@@ -50,45 +51,3 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
 }
-/*import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { TasksService } from '../services/tasks.service';
-
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit, OnDestroy {
-  title = 'drag-drop-app';
-
-  taskGroups: any[]; //va récupérer dans task.service.ts les taskGroup qui sont emis dans task.service.ts
-  taskGroupsSubscription: Subscription; //la subscription est le recepteur
-
-  taskGroupsIds: any[]; //cette variable va nous permettre de lier les listes ensemble, donc elle va recenser les id des groupes de tâches des listes, dans ce qui est déclarer en objet dans tasks.service
-  //Donc cela va nous permettre de faire la liaison entre chaque liste, dans le but de faire passer des éléments d'une liste à une autre.
-constructor( private tasksService: TasksService){
-
-}
-
-ngOnInit(){ //récupérer au chargement du composant la liste et ngOnDestroy va me permettre de me désabonner de la souscription lors du déchargement
-  this.taskGroupsSubscription = this.tasksService.taskGroupsSubject.subscribe( //on s'abonne à ce subject afin de pouvoir récupérer les data
-    //(taskGroups: any[]) => {
-      (data) => {
-      this.taskGroups = data;
-      }
-      //taskGroups.forEach(function (child){
-        //this.taskGroupsIds.push(child);
-        //console.log(child);
-      //});
-    //}
-  );
-  this.tasksService.emitTaskGroups();
-}
-
-ngOnDestroy() {
-  this.taskGroupsSubscription.unsubscribe(); //désabonnement de la souscription
-}
-
-}*/
