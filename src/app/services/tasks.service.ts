@@ -8,63 +8,80 @@ export class TasksService {
 
   taskGroups: any[] = [ /*Penser à rajouter un type afin de remplacer le "any" mis provisoirement*/
     {
-      title: "A faire",
-      id: "todo",
+      title: "En recherche d'emploi",
+      id: "en_recherche",
       tasks: [
         {
           id: 0,
-          title: "Première tache",
-          description: "Voici ma première tache"
+          title: "Alfredo Lorosco",
+          description: "Spécialisé en développement Fullstack JavaScript"
         },
         {
           id: 1,
-          title: "Acheter du pain",
-          description: "Aller acheter du pain à la boulangerie"
+          title: "Steve Dupont",
+          description: "Spécialisé en développement Full Stack"
         },
         {
           id: 2,
-          title: "Faire les courses",
-          description: "Prendre du lait, des céréales et des bananes"
+          title: "David Monnier",
+          description: "Spécialisé en développement Back-end"
         }
       ]
     },
     {
-      title: "En cours",
-      id: "inProgress",
+      title: "Poste : Développeur Front-end",
+      id: "dev_front",
       tasks: [
         {
           id: 0,
-          title: "Réparer la voiture",
-          description: "Changer le phare avant gauche"
+          title: "Sandra Torres",
+          description: "Spécialisée en développement PHP"
         },
         {
           id: 1,
-          title: "Etendre le linge",
-          description: "Etendre le linge"
+          title: "Sara Lanza",
+          description: "Spécialisée en développement sur Wordpress et PHP"
         },
         {
           id: 2,
-          title: "Préparer une quiche",
-          description: "Voir la recette de la quiche"
+          title: "Luca Rossilo",
+          description: "Spécialisé en développement sur ReactJS et ExpressJS"
         }
       ]
     },
     {
-      title: "Terminé",
-      id: "done",
+      title: "Poste : Développeur Back-end",
+      id: "dev_back",
       tasks: [
         {
           id: 0,
-          title: "Mettre la table",
-          description: "Mettre 8 couverts pour les invités"
+          title: "Alberto Lopes",
+          description: "Spécialisé en développement en PHP"
         },
         {
           id: 1,
-          title: "Passer l'aspirateur",
-          description: "Nettoyage du rez de chaussée"
+          title: "Stéphane Manolo",
+          description: "Spécialisé en développement en Java"
+        }
+      ]
+    },
+    {
+      title: "Poste : Développeur Full Stack",
+      id: "dev_fullstack",
+      tasks: [
+        {
+          id: 0,
+          title: "Alberto Lopes",
+          description: "Spécialisé en développement JavaScript"
+        },
+        {
+          id: 1,
+          title: "Stéphane Manolo",
+          description: "Spécialisé en développement Full Stack JavaScript"
         }
       ]
     }
+
   ];
   
   taskGroupsSubject = new Subject<any[]>(); //le subject est un observable qui sert à emettre les donneés
